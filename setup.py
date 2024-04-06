@@ -9,7 +9,7 @@ setup(name="Zero-Knowledge",
       long_description_content_type="text/markdown",
       author="zk-Call",
       author_email="contact@zkcall.net",
-      url="https://github.com/zk-Call/",
+      url="https://github.com/zk-Call",
       classifiers=[
           "License :: OSI Approved :: MIT License",
           "Topic :: Security :: Cryptography",
