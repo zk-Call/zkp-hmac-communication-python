@@ -8,7 +8,7 @@ setup(name="Zero-Knowledge",
       long_description=open("README.md", "r", encoding="utf-8").read(),
       long_description_content_type="text/markdown",
       author="zk-Call",
-      author_email="zk.call.est@gmail.com",
+      author_email="contact@zkcall.net",
       url="https://github.com/zk-Call/",
       classifiers=[
           "License :: OSI Approved :: MIT License",
