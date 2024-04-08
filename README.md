@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/Banner.jpg">
+  <img src="assets/zk-Call Preview [Python].png">
 </div>
 <h1 align="center">zk-Call & Labs</h1>
 
@@ -19,7 +19,7 @@
 
 
 
-## Table of Contents
+# Table of Contents
 - [Credits](#credits)
 - [Purpose](#purpose)
 - [How it Works](#how-it-works)
@@ -27,7 +27,7 @@
 - [Example Usage](#example-usage)
 
 
-## Credits
+# Credits
 This repository hosts a refined implementation of **Schnorr's protocol**, innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
 
 For further exploration:
@@ -39,18 +39,41 @@ Additionally, this repository delves into the concepts of **"Zero-Knowledge" Pro
 On the other hand, **HMACs** are a type of cryptographic hash function used for message authentication. They involve a cryptographic hash function **(such as SHA-256)** and a secret cryptographic key. **HMACs** provide a way to verify both the data integrity and the authenticity of a message, ensuring that it has not been altered or tampered with during transmission and that it indeed originates from the purported sender.
 
 
-## Purpose
-In today's rapidly evolving IT and application development landscape, **"Zero-Knowledge" Proofs (ZKPs)** emerge as a pivotal paradigm for authentication security. Their capacity to affirm the validity of a claim—such as proving possession of a secret password—without revealing any sensitive information about the claim itself, such as passwords or hashes, revolutionizes the assurance of secure AAA operations (authentication, authorization, and accounting). **zk-Call & Labs** represents an implementation of a [**Non-Interactive "Zero-Knowledge" Proof**](https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof) **(NIZKP)** protocol tailored specifically for validating text-based secrets. This framework proves invaluable for safeguarding passwords and other authentication mechanisms, ensuring robust security measures without compromising privacy. Additionally, the integration of **HMAC (Hash-Based Message Authentication Code)** further fortifies the authentication process, enhancing data integrity and thwarting potential security breaches.
+# Purpose
+In today's rapidly evolving IT and application development landscape, **"Zero-Knowledge" Proofs (ZKPs)** emerge as a pivotal paradigm for authentication security. Their capacity to affirm the validity of a claim—such as proving possession of a secret password—without revealing any sensitive information about the claim itself, such as passwords or hashes, revolutionizes the assurance of secure AAA operations (authentication, authorization, and accounting).
 
-## How It Works
+**zk-Call & Labs** represents an implementation of a [**Non-Interactive "Zero-Knowledge" Proof**](https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof) **(NIZKP)** protocol tailored specifically for validating text-based secrets. This framework proves invaluable for safeguarding passwords and other authentication mechanisms, ensuring robust security measures without compromising privacy. Additionally, the integration of **HMAC (Hash-Based Message Authentication Code)** further fortifies the authentication process, enhancing data integrity and thwarting potential security breaches.
+
+# How It Works
 
 **The authentication protocol employed in this system operates based on two fundamental concepts:**
 **"Zero-Knowledge" Proofs (ZKPs)** and **Hash-Based Message Authentication Code (HMAC)**. Let's delve into each of these components and understand how they synergize to ensure secure authentication in messaging applications.
+<br>
+
+"Zero-Knowledge" Proofs (ZKPs):
+---
+
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (1)](assets/ZKP-HMAC-1.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (2)](assets/ZKP-HMAC-2.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (3)](assets/ZKP-HMAC-3.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (4)](assets/ZKP-HMAC-4.png)
+
+---
 
 **"Zero-Knowledge" Proofs (ZKPs)** form the bedrock of privacy-preserving authentication mechanisms. These proofs allow one party **(the prover)** to demonstrate the validity of a claim to another party **(the verifier)** without revealing any additional information beyond the claim's validity. In essence, **ZKPs** enable authentication without the need for the prover to disclose sensitive data, such as passwords or cryptographic keys.
 
 **Application in Authentication:**
 In the context of messaging applications, **ZKPs** play a pivotal role in verifying a user's identity without the need to transmit explicit credentials over the network. Instead, users can generate cryptographic proofs attesting to their identity or possession of certain credentials without exposing those credentials themselves. This ensures that sensitive information remains confidential during the authentication process, bolstering security and privacy.
+
+---
+
+
+Hash-Based Message Authentication Code (HMAC):
+---
+
+![Detailed Schematic Overview of HMAC Encryption](assets/HMAC.png)
+
+---
 
 **Hash-Based Message Authentication Code (HMAC):**
 **HMAC** provides a robust mechanism for verifying the integrity and authenticity of messages exchanged between parties. It involves the use of a cryptographic hash function in conjunction with a secret key to generate a unique code **(the HMAC)** for each message. This code serves as a digital signature, allowing the recipient to verify that the message has not been tampered with or altered during transmission.
@@ -58,15 +81,19 @@ In the context of messaging applications, **ZKPs** play a pivotal role in verify
 **Application in Authentication:**
 In messaging applications, **HMAC** can be employed to authenticate message senders and ensure the integrity of communication channels. By appending an **HMAC** to each message using a shared secret key, both the sender and recipient can validate the message's authenticity upon receipt. Any unauthorized modifications to the message would result in a mismatch between the **computed HMAC** and the **received HMAC**, thereby alerting the recipient to potential tampering.
 
+---
+
 **Synergistic Operation:**
 When combined, **"Zero-Knowledge" Proofs** and **HMAC** create a formidable framework for secure authentication in messaging applications. **ZKPs** facilitate identity verification without divulging sensitive information, while **HMAC** ensures the integrity and authenticity of messages exchanged between parties. Together, these mechanisms uphold the confidentiality, integrity, and authenticity of communication channels, safeguarding users' privacy and security in the digital realm.
 
+---
 
-<h1>API</h1>
+# API
 
 The **`"Zero-Knowledge"`** Python API is meant to be simple and intuitive:<br>
 
-### Core Components
+
+## Core Components
 The **`Core Components`** are key for establishing a secure and efficient framework for cryptographic protocols; streamlining the creation and validation of **"Zero-Knowledge" Proofs (ZKPs)**. They enhance anonymous, data-safe proof validations.
 
 ![Detailed Schematic Overview of Core Components](assets/Core%20Components.png)
@@ -120,7 +147,7 @@ Wrapper that contains a proof and the necessary data to validate the proof again
 
 ---
 
-### ZeroKnowledge
+## ZeroKnowledge
 The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** and its state (defined by **`ZeroKnowledgeParams`**) should be inherently known to both the Client (Prover) and Server (Verifier).
 
 ![Comprehensive Visual Guide to ZeroKnowledge Framework](assets/ZeroKnowledge.png)
@@ -160,7 +187,7 @@ The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** an
 # Example Usage
 TODO: Include **`Example Usage`**
 
-### Example 1
+## Example 1
 
     """
     Extremely simple example of hmac
@@ -266,7 +293,7 @@ TODO: Include **`Example Usage`**
 
 ---
 
-### Example 2
+## Example 2
 
     """
     Extremely simple example of ZeroKnowledge
@@ -402,7 +429,7 @@ TODO: Include **`Example Usage`**
 
 ---
         
-### Example 3
+## Example 3
 
     """
     Extremely simple example of ZeroKnowledge and hmac together
