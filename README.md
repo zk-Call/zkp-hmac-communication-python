@@ -108,7 +108,7 @@ In messaging applications, **HMAC** can be employed to authenticate message send
 <br>
 <br>
 
-Synergistic Operation:
+Synergistic Operation
 ---
 When combined, **"Zero-Knowledge" Proofs** and **HMAC** create a formidable framework for secure authentication in messaging applications. **ZKPs** facilitate identity verification without divulging sensitive information, while **HMAC** ensures the integrity and authenticity of messages exchanged between parties. Together, these mechanisms uphold the confidentiality, integrity, and authenticity of communication channels, safeguarding users' privacy and security in the digital realm.
 
@@ -126,12 +126,12 @@ The **`"Zero-Knowledge"`** Python API is meant to be simple and intuitive:<br>
 ## Core Components
 The **`Core Components`** are key for establishing a secure and efficient framework for cryptographic protocols; streamlining the creation and validation of **"Zero-Knowledge" Proofs (ZKPs)**. They enhance anonymous, data-safe proof validations.
 
-![Detailed Schematic Overview of Core Components](assets/Core%20Components.png)
+![Detailed Schematic Overview of Core Components](assets/Core%20Components%20[API].png)
 
 ---
 
 #### ZeroKnowledge.models.ZeroKnowledgeParams:
-The parameters used to initialize the **"Zero-Knowledge"** crypto system.
+The parameters **used to initialize the "Zero-Knowledge"** crypto system.
 
     class ZeroKnowledgeParams(NamedTuple):
         """
@@ -142,7 +142,7 @@ The parameters used to initialize the **"Zero-Knowledge"** crypto system.
         s: int                      # Random salt for the state
 
 #### ZeroKnowledge.models.ZeroKnowledgeSignature:
-A crytographic **"Zero-Knowledge"** signature that can be used to verify future messages.
+A **crytographic "Zero-Knowledge"** signature that can be used to verify future messages.
 
     class ZeroKnowledgeSignature(NamedTuple):
         """
@@ -153,7 +153,7 @@ A crytographic **"Zero-Knowledge"** signature that can be used to verify future 
 
 
 #### ZeroKnowledge.models.ZeroKnowledgeProof:
-A cryptograpgic proof that can be verified against a signature.
+A **cryptograpgic proof** that can be verified against a signature.
 
     class ZeroKnowledgeProof(NamedTuple):
         """
@@ -166,7 +166,7 @@ A cryptograpgic proof that can be verified against a signature.
 
 
 #### ZeroKnowledge.models.ZeroKnowledgeData
-Wrapper that contains a proof and the necessary data to validate the proof against a signature.
+**Wrapper** that contains **a proof and the necessary data** to validate the proof against a signature.
 
     class ZeroKnowledgeData(NamedTuple):
         """
@@ -178,9 +178,9 @@ Wrapper that contains a proof and the necessary data to validate the proof again
 ---
 
 ## ZeroKnowledge
-The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** and its state (defined by **`ZeroKnowledgeParams`**) should be inherently known to both the Client (Prover) and Server (Verifier).
+The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** and its state (defined by **`ZeroKnowledgeParams`**) should be inherently known to both the **Client (Prover)** and **Server (Verifier)**.
 
-![Comprehensive Visual Guide to ZeroKnowledge Framework](assets/ZeroKnowledge.png)
+![Comprehensive Visual Guide to ZeroKnowledge Framework](assets/ZeroKnowledge%20[API].png)
 
 ---
 
@@ -196,7 +196,7 @@ The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** an
     <td><code>create_signature</code></td>
     <td><code>secret: Union[str, bytes]</code></td>
     <td>Prover</td>
-    <td>Create a cryptographic signature derived from the value <code>secret</code> to be generated during initial registration and stored for subsequent challenge proofs.</td>
+    <td>Create a cryptographic signature derived from the value <code>secret</code> to be generated during initial registration and stored for subsequent <code>challenge</code> proofs.</td>
   </tr>
   <tr>
     <td><code>sign</code></td>
@@ -208,7 +208,7 @@ The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** an
     <td><code>verify</code></td>
     <td><code>challenge: Union[ZeroKnowledgeData, ZeroKnowledgeProof]</code> <br /> <code>signature: ZeroKnowledgeSignature</code> <br /> <code>data: Optional[Union[str, bytes, int]]</code></td>
     <td>Verifier</td>
-    <td>Verify the user-provided <code>challenge</code> against the stored <code>signature</code> and randomly generated <code>token</code> to verify the validity of the challenge.</td>
+    <td>Verify the user-provided <code>challenge</code> against the stored <code>signature</code> and randomly generated token to verify the validity of the <code>challenge</code>.</td>
   </tr>
 </table>
 
