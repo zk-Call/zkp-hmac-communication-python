@@ -1,6 +1,6 @@
 from queue import Queue
 from threading import Thread
-from src.Hmac.core import HmacClient
+from src.HMAC.core import HMACClient
 from src.SeedGeneration.core import SeedGenerator
 
 DEBUG = True
@@ -29,8 +29,8 @@ def client(client_socket: Queue, server_socket: Queue):
     # Generating the main seed
     main_seed = SeedGenerator(phrase="job").generate()
 
-    # Creating an instance of HmacClient for encrypting messages
-    obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+    # Creating an instance of HMACClient for encrypting messages
+    obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
 
     # Sending the main seed to the server
     server_socket.put(main_seed)
@@ -58,8 +58,8 @@ def server(server_socket: Queue, client_socket: Queue):
     # Receiving the main seed from the client
     main_seed = server_socket.get()
 
-    # Creating an instance of HmacClient for encrypting messages
-    obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+    # Creating an instance of HMACClient for encrypting messages
+    obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
 
     # Sending an empty message to the client as acknowledgment
     client_socket.put(obj.encrypt_message(''))

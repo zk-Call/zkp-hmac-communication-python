@@ -2,7 +2,7 @@ from src.ZeroKnowledge.core import ZeroKnowledge
 from src.ZeroKnowledge.models import ZeroKnowledgeSignature, ZeroKnowledgeData
 from queue import Queue
 from threading import Thread
-from src.Hmac.core import HmacClient
+from src.HMAC.core import HMACClient
 from src.SeedGeneration.core import SeedGenerator
 
 DEBUG = True
@@ -50,8 +50,8 @@ def client(client_socket: Queue, server_socket: Queue):
         # Sending the main seed to the server
         server_socket.put(main_seed)
 
-        # Initializing an HmacClient object for message encryption/decryption
-        obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+        # Initializing an HMACClient object for message encryption/decryption
+        obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
 
         # Verifying an empty message received from the server
         if client_socket.get() == obj.encrypt_message(''):
@@ -115,8 +115,8 @@ def server(server_socket: Queue, client_socket: Queue):
         # Receiving the main seed from the client via server_socket
         main_seed = server_socket.get()
 
-        # Initializing an HmacClient object for message encryption/decryption using the received main seed
-        obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+        # Initializing an HMACClient object for message encryption/decryption using the received main seed
+        obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
 
         # Sending an empty message to the client
         client_socket.put(obj.encrypt_message(''))

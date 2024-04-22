@@ -224,7 +224,7 @@ TODO: Include **`Example Usage`**
     """
     from queue import Queue
     from threading import Thread
-    from src.Hmac.core import HmacClient
+    from src.HMAC.core import HMACClient
     from src.SeedGeneration.core import SeedGenerator
     
     DEBUG = True
@@ -253,8 +253,8 @@ TODO: Include **`Example Usage`**
         # Generating the main seed
         main_seed = SeedGenerator(phrase="job").generate()
     
-        # Creating an instance of HmacClient for encrypting messages
-        obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+        # Creating an instance of HMACClient for encrypting messages
+        obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
     
         # Sending the main seed to the server
         server_socket.put(main_seed)
@@ -282,8 +282,8 @@ TODO: Include **`Example Usage`**
         # Receiving the main seed from the client
         main_seed = server_socket.get()
     
-        # Creating an instance of HmacClient for encrypting messages
-        obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+        # Creating an instance of HMACClient for encrypting messages
+        obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
     
         # Sending an empty message to the client as acknowledgment
         client_socket.put(obj.encrypt_message(''))
@@ -468,7 +468,7 @@ TODO: Include **`Example Usage`**
     from src.ZeroKnowledge.models import ZeroKnowledgeSignature, ZeroKnowledgeData
     from queue import Queue
     from threading import Thread
-    from src.Hmac.core import HmacClient
+    from src.HMAC.core import HMACClient
     from src.SeedGeneration.core import SeedGenerator
     
     DEBUG = True
@@ -516,8 +516,8 @@ TODO: Include **`Example Usage`**
             # Sending the main seed to the server
             server_socket.put(main_seed)
     
-            # Initializing an HmacClient object for message encryption/decryption
-            obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+            # Initializing an HMACClient object for message encryption/decryption
+            obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
     
             # Verifying an empty message received from the server
             if client_socket.get() == obj.encrypt_message(''):
@@ -581,8 +581,8 @@ TODO: Include **`Example Usage`**
             # Receiving the main seed from the client via server_socket
             main_seed = server_socket.get()
     
-            # Initializing an HmacClient object for message encryption/decryption using the received main seed
-            obj = HmacClient(algorithm="sha256", secret=main_seed, symbol_count=1)
+            # Initializing an HMACClient object for message encryption/decryption using the received main seed
+            obj = HMACClient(algorithm="sha256", secret=main_seed, symbol_count=1)
     
             # Sending an empty message to the client
             client_socket.put(obj.encrypt_message(''))

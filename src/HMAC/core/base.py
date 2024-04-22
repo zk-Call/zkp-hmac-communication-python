@@ -10,7 +10,7 @@ from ..utils import to_bytes, to_str  # Importing utility functions for type con
 # Secure random generation
 random = SystemRandom()  # Creating an instance of SystemRandom for secure random number generation
 
-class HmacClient:
+class HMACClient:
     """
     HMAC (Hash-based Message Authentication Code) Client for message encryption and decryption.
     """
