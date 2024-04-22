@@ -27,7 +27,7 @@
 
 # Credits
 
-This repository hosts a refined implementation of [**Schnorr's Protocol**](https://en.wikipedia.org/wiki/Schnorr_signature) , innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
+This repository hosts a refined implementation of [**Schnorr's Protocol**](https://en.wikipedia.org/wiki/Schnorr_signature), innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
 
 ---
 
@@ -126,7 +126,7 @@ The **`"Zero-Knowledge"`** Python API is meant to be simple and intuitive:<br>
 ## Core Components
 The **`Core Components`** are key for establishing a secure and efficient framework for cryptographic protocols; streamlining the creation and validation of **"Zero-Knowledge" Proofs (ZKPs)**. They enhance anonymous, data-safe proof validations.
 
-![Detailed Schematic Overview of Core Components](assets/Core%20Components%20[API].png)
+![Detailed Schematic Overview of Core Components](assets/Core%20Components%20(Python).png)
 
 ---
 
@@ -135,30 +135,30 @@ The parameters **used to initialize the "Zero-Knowledge"** crypto system.
 
     class ZeroKnowledgeParams(NamedTuple):
         """
-        Parameters used to construct a Zero-Knowledge Proof state using an curve and a random salt
+        Parameters used to construct a Zero-Knowledge Proof state, utilizing an elliptic curve and a random salt
         """
         algorithm: str                    # Hashing algorithm name
         curve: str                  # Standard Elliptic Curve name to use
         s: int                      # Random salt for the state
 
 #### ZeroKnowledge.models.ZeroKnowledgeSignature
-A **crytographic "Zero-Knowledge"** signature that can be used to verify future messages.
+A **cryptographic "Zero-Knowledge"** signature that can be used to verify future messages.
 
     class ZeroKnowledgeSignature(NamedTuple):
         """
-        Cryptographic public signature used to verify future messages
+        Cryptographic public signature designed to verify future messages
         """
         params: ZeroKnowledgeParams       # Reference ZeroKnowledge Parameters
         signature: int              # The public key derived from your original secret
 
 
 #### ZeroKnowledge.models.ZeroKnowledgeProof
-A **cryptograpgic proof** that can be verified against a signature.
+A **cryptographic proof** that can be verified against a signature.
 
     class ZeroKnowledgeProof(NamedTuple):
         """
-        Non-deterministic cryptographic Zero-Knowledge Proof that can be verified to ensure the
-        private key used to create the proof is the same key used to generate the signature
+        Non-deterministic cryptographic Zero-Knowledge Proof designed to confirm that the
+        private key creating the proof matches the key used to generate the signature
         """
         params: ZeroKnowledgeParams        # Reference ZeroKnowledge Parameters
         c: int                      # The hash of the signed data and random point, R
@@ -170,7 +170,7 @@ A **cryptograpgic proof** that can be verified against a signature.
 
     class ZeroKnowledgeData(NamedTuple):
         """
-        Wrapper to contain data and a signed proof using the data
+        Wrapper designed to hold data along with its corresponding signed proof
         """
         data: Union[str, bytes, int]
         proof: ZeroKnowledgeProof
@@ -180,7 +180,7 @@ A **cryptograpgic proof** that can be verified against a signature.
 ## ZeroKnowledge
 The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** and its state (defined by **`ZeroKnowledgeParams`**) should be inherently known to both the **Client (Prover)** and **Server (Verifier)**.
 
-![Comprehensive Visual Guide to ZeroKnowledge Framework](assets/ZeroKnowledge%20[API].png)
+![Comprehensive Visual Guide to ZeroKnowledge Framework](assets/ZeroKnowledge%20(Python).png)
 
 ---
 
@@ -196,7 +196,7 @@ The **`ZeroKnowledge`** class is the central component of **`ZeroKnowledge`** an
     <td><code>create_signature</code></td>
     <td><code>secret: Union[str, bytes]</code></td>
     <td>Prover</td>
-    <td>Create a cryptographic signature derived from the value <code>secret</code> to be generated during initial registration and stored for subsequent <code>challenge</code> proofs.</td>
+    <td>Create a cryptographic <code>signature</code> derived from the value <code>secret</code> to be generated during initial registration and stored for subsequent <code>challenge</code> proofs.</td>
   </tr>
   <tr>
     <td><code>sign</code></td>
