@@ -130,7 +130,7 @@ The **`Core Components`** are key for establishing a secure and efficient framew
 
 ---
 
-#### ZeroKnowledge.models.ZeroKnowledgeParams:
+#### ZeroKnowledge.models.ZeroKnowledgeParams
 The parameters **used to initialize the "Zero-Knowledge"** crypto system.
 
     class ZeroKnowledgeParams(NamedTuple):
@@ -141,7 +141,7 @@ The parameters **used to initialize the "Zero-Knowledge"** crypto system.
         curve: str                  # Standard Elliptic Curve name to use
         s: int                      # Random salt for the state
 
-#### ZeroKnowledge.models.ZeroKnowledgeSignature:
+#### ZeroKnowledge.models.ZeroKnowledgeSignature
 A **crytographic "Zero-Knowledge"** signature that can be used to verify future messages.
 
     class ZeroKnowledgeSignature(NamedTuple):
@@ -152,7 +152,7 @@ A **crytographic "Zero-Knowledge"** signature that can be used to verify future 
         signature: int              # The public key derived from your original secret
 
 
-#### ZeroKnowledge.models.ZeroKnowledgeProof:
+#### ZeroKnowledge.models.ZeroKnowledgeProof
 A **cryptograpgic proof** that can be verified against a signature.
 
     class ZeroKnowledgeProof(NamedTuple):
