@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/zk-Call Preview [Python].png">
+  <img src="assets/zk-Call%20Preview%20%5BPython%5D.png">
 </div>
 <h1 align="center">zk-Call & Labs</h1>
 
